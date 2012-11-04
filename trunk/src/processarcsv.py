@@ -48,7 +48,7 @@ def write_database():
     linha = 0
     for list_line in reader:
         linha += 1
-        if linha == 5:
+        if not(linha > 4 and linha < 11957):
             continue       
         instrucao = '''INSERT INTO Inscritos (estEnsino, unidOrgan, nivelCur, curSup, areaForma,
                                           ano_um_h, ano_um_m, ano_um_hm,
@@ -103,8 +103,6 @@ def write_database():
         
         
         cursor.execute(instrucao)
-        if linha == 11956:
-          break
         pass
     conn.commit()
     cursor.close()
