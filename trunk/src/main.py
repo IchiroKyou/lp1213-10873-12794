@@ -18,9 +18,9 @@ db.createTable("inscritos")
 db.writeToTable("Inscritos_2010-2011.xls")
 db.dbToCsv("curso",["Computadores","Informática"])
 
-csv_a = CsvAnalyzer('results/estatisticas.csv')
+#csv_a = CsvAnalyzer('results/estatisticas.csv')
 
 
-plotlines = MatPlotLines(csv_a)
-plotlines.draw('total_hm')
+#plotlines = MatPlotLines(csv_a)
+#plotlines.draw('total_hm')
 

@@ -157,7 +157,35 @@ class DbHandler:
 		cursor = self.conn.cursor()
 		cursor2 = self.conn.cursor()
 		csv_writer = csv.writer(open("results/estatisticas.csv", "w"))
+		nome_colunas_topo = ["Estabelecimento", "Unidade Orgânica", "Nivel de Formação", "Curso"]
+		nome_colunas_total = ['', '', '', '']
+		nome_colunas_nf = ["Nível de Formação", '', '', ''] 
+		nome_colunas_inscritos_nf = ["Nível de Formação", '', '', ''] 
 		
+		#Ciclo que completa o array com os titulos das colunas das diferentes
+		#secções do ficheiro csv
+		for i in range(len(self.anos)):
+			#Acrescenta o ano lectivo ao nome das tabelas no inicio do ficheiro
+			nome_colunas_topo += ["Homens " + str(self.anos[i])]
+			nome_colunas_topo += ["Mulheres " + str(self.anos[i])]
+			nome_colunas_topo += ["Homens e Mulheres " + str(self.anos[i])]
+			
+			#Acrescenta o ano lectivo a nome_colunas_total para
+			#apresentar por cima dos totais dos alunos inscritos ao longo
+			#desses anos lectivos
+			nome_colunas_total += ["Homens " + str(self.anos[i])]
+			nome_colunas_total += ["Mulheres " + str(self.anos[i])]
+			nome_colunas_total += ["Homens e Mulheres " + str(self.anos[i])]
+			
+			nome_colunas_inscritos_nf += ["Homens " + str(self.anos[i])]
+			nome_colunas_inscritos_nf += ["Mulheres " + str(self.anos[i])] 
+			nome_colunas_inscritos_nf += ["Homens e Mulheres " + str(self.anos[i])]
+		
+		
+		for i in range(len(self.anos)):
+			nome_colunas_nf += [str(self.anos[i])]
+			
+		csv_writer.writerow(nome_colunas_topo)
 		#Procura na tabela table_name todos os resultados que
 		#tenham table_name igual a args[0] e args[1], e escreve
 		#os resultados no ficheiro estatisticas.csv
@@ -165,6 +193,8 @@ class DbHandler:
 		for el in cursor:
 			csv_writer.writerow([s.encode("utf-8") if isinstance(s,unicode) else s for s in el])
 		csv_writer.writerow([])
+		
+		csv_writer.writerow(nome_colunas_total)
 		
 		#a_escrever vai conter a soma de todos os alunos(homens, mulheres, e ambos) 
 		#em cada ano lectivo dos cursos seleccionados na linha "157"
@@ -177,6 +207,7 @@ class DbHandler:
 		csv_writer.writerow(a_escrever)
 		csv_writer.writerow([])
 		
+		#cursor.execute(nome_colunas_nf)
 		#Escreve a quantidade de cursos por nível de formação ao longo dos anos
 		cursor.execute("SELECT DISTINCT nivel_formacao FROM " + self.table_name + " WHERE " + col_name + " LIKE '%" + args[0] + "%' OR " + col_name + " LIKE '%" + args[1] + "%'")
 		for nivel_formacao in cursor:
@@ -194,6 +225,7 @@ class DbHandler:
 			
 		
 		#Escreve a quantidade de alunos por nível de formação ao longo dos anos
+		csv_writer.writerow(nome_colunas_inscritos_nf)
 		cursor.execute("SELECT DISTINCT nivel_formacao FROM " + self.table_name + " WHERE " + col_name + " LIKE '%" + args[0] + "%' OR " + col_name + " LIKE '%" + args[1] + "%'")
 		for nivel_formacao in cursor:
 			a_escrever = [s.encode("utf-8") if isinstance(s, unicode) else s for s in nivel_formacao]	
@@ -207,5 +239,3 @@ class DbHandler:
 			csv_writer.writerow(a_escrever)
 
 		del csv_writer
-
-	#def selectFromList(self, col, nome):
