@@ -931,21 +931,22 @@ Estabelecimento,Unidade Orgânica,Nivel de Formação,Curso,Homens 9596,Mulheres
 ,,,,Homens 9596,Mulheres 9596,Homens e Mulheres 9596,Homens 9697,Mulheres 9697,Homens e Mulheres 9697,Homens 9798,Mulheres 9798,Homens e Mulheres 9798,Homens 9899,Mulheres 9899,Homens e Mulheres 9899,Homens 9900,Mulheres 9900,Homens e Mulheres 9900,Homens 0001,Mulheres 0001,Homens e Mulheres 0001,Homens 0102,Mulheres 0102,Homens e Mulheres 0102,Homens 0203,Mulheres 0203,Homens e Mulheres 0203,Homens 0304,Mulheres 0304,Homens e Mulheres 0304,Homens 0405,Mulheres 0405,Homens e Mulheres 0405,Homens 0506,Mulheres 0506,Homens e Mulheres 0506,Homens 0607,Mulheres 0607,Homens e Mulheres 0607,Homens 0708,Mulheres 0708,Homens e Mulheres 0708,Homens 0809,Mulheres 0809,Homens e Mulheres 0809,Homens 0910,Mulheres 0910,Homens e Mulheres 0910,Homens 1011,Mulheres 1011,Homens e Mulheres 1011
 Total,,,,25248,10708,35956,27194,11098,38292,30546,9516,40062,34230,8804,43034,35508,8324,43832,37872,8102,45974,44220,8792,53012,47056,8632,55688,49294,8556,57850,49180,8120,57300,48648,8060,56708,50556,7520,58076,51008,7274,58282,49922,6366,56288,50598,6040,56638,49916,6062,55978
 
-L - Licenciatura,,,,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162,162
-P - Preparatórios de licenciatura,,,,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
-L1 - Licenciatura - 1º ciclo,,,,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234
-PL - Preparatório de licenciatura 1ºciclo,,,,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
-M2 - Mestrado - 2º ciclo,,,,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90
-D3 - Doutoramento - 3º ciclo,,,,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52
-DE - Diploma de estudos superiores Especializados,,,,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20
-MI - Mestrado Integrado,,,,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14
-D - Doutoramento,,,,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42
-C - Curso de Especialização Tecnológica,,,,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
-M - Mestrado,,,,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42
-E - Especialização pós-licenciatura,,,,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24
-B - Bacharelato,,,,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98,98
-C0 - Curso de Especialização Tecnológica,,,,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,26
-LB - Bacharelato+Licenciatura,,,,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108
+Nível de Formação,,,,Número de Cursos
+L - Licenciatura,,,,162
+P - Preparatórios de licenciatura,,,,4
+L1 - Licenciatura - 1º ciclo,,,,234
+PL - Preparatório de licenciatura 1ºciclo,,,,2
+M2 - Mestrado - 2º ciclo,,,,90
+D3 - Doutoramento - 3º ciclo,,,,52
+DE - Diploma de estudos superiores Especializados,,,,20
+MI - Mestrado Integrado,,,,14
+D - Doutoramento,,,,42
+C - Curso de Especialização Tecnológica,,,,10
+M - Mestrado,,,,42
+E - Especialização pós-licenciatura,,,,24
+B - Bacharelato,,,,98
+C0 - Curso de Especialização Tecnológica,,,,26
+LB - Bacharelato+Licenciatura,,,,108
 
 Nível de Formação,,,,Homens 9596,Mulheres 9596,Homens e Mulheres 9596,Homens 9697,Mulheres 9697,Homens e Mulheres 9697,Homens 9798,Mulheres 9798,Homens e Mulheres 9798,Homens 9899,Mulheres 9899,Homens e Mulheres 9899,Homens 9900,Mulheres 9900,Homens e Mulheres 9900,Homens 0001,Mulheres 0001,Homens e Mulheres 0001,Homens 0102,Mulheres 0102,Homens e Mulheres 0102,Homens 0203,Mulheres 0203,Homens e Mulheres 0203,Homens 0304,Mulheres 0304,Homens e Mulheres 0304,Homens 0405,Mulheres 0405,Homens e Mulheres 0405,Homens 0506,Mulheres 0506,Homens e Mulheres 0506,Homens 0607,Mulheres 0607,Homens e Mulheres 0607,Homens 0708,Mulheres 0708,Homens e Mulheres 0708,Homens 0809,Mulheres 0809,Homens e Mulheres 0809,Homens 0910,Mulheres 0910,Homens e Mulheres 0910,Homens 1011,Mulheres 1011,Homens e Mulheres 1011
 L - Licenciatura,,,,18690,7664,26354,19624,7754,27378,21810,6096,27906,22644,5500,28144,23132,5154,28286,24154,4766,28920,28336,5188,33524,29396,4924,34320,30898,5014,35912,30800,4750,35550,30896,4808,35704,15578,2636,18214,2068,780,2848,320,218,538,40,20,60,10,4,14

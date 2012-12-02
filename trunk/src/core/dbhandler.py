@@ -159,7 +159,7 @@ class DbHandler:
 		csv_writer = csv.writer(open("results/estatisticas.csv", "w"))
 		nome_colunas_topo = ["Estabelecimento", "Unidade Orgânica", "Nivel de Formação", "Curso"]
 		nome_colunas_total = ['', '', '', '']
-		nome_colunas_nf = ["Nível de Formação", '', '', ''] 
+		nome_colunas_nf = ["Nível de Formação", '', '', '', "Número de Cursos"] 
 		nome_colunas_inscritos_nf = ["Nível de Formação", '', '', ''] 
 		
 		#Ciclo que completa o array com os titulos das colunas das diferentes
@@ -181,10 +181,6 @@ class DbHandler:
 			nome_colunas_inscritos_nf += ["Mulheres " + str(self.anos[i])] 
 			nome_colunas_inscritos_nf += ["Homens e Mulheres " + str(self.anos[i])]
 		
-		
-		for i in range(len(self.anos)):
-			nome_colunas_nf += [str(self.anos[i])]
-			
 		csv_writer.writerow(nome_colunas_topo)
 		#Procura na tabela table_name todos os resultados que
 		#tenham table_name igual a args[0] e args[1], e escreve
@@ -207,25 +203,22 @@ class DbHandler:
 		csv_writer.writerow(a_escrever)
 		csv_writer.writerow([])
 		
-		#cursor.execute(nome_colunas_nf)
-		#Escreve a quantidade de cursos por nível de formação ao longo dos anos
+		csv_writer.writerow(nome_colunas_nf)
+		#Escreve a quantidade de cursos por nível de formação
 		cursor.execute("SELECT DISTINCT nivel_formacao FROM " + self.table_name + " WHERE " + col_name + " LIKE '%" + args[0] + "%' OR " + col_name + " LIKE '%" + args[1] + "%'")
 		for nivel_formacao in cursor:
 			a_escrever = [s.encode("utf-8") if isinstance(s, unicode) else s for s in nivel_formacao]
-			for n in range (3):
-				a_escrever.append('')
+			a_escrever += ['','','']
 				
-			for ano in self.anos:
-				for i in range(3):
-					cursor2.execute("SELECT count(*) FROM " + self.table_name + " WHERE (nivel_formacao == '" + nivel_formacao[0].encode("utf-8") + "') AND ((curso LIKE '%" + args[0] + "%') OR (curso LIKE '%" + args[1] + "%'))")
-					tmp = cursor2.fetchone()[0]
-					a_escrever.append(tmp)
+			#cursor2 contem o numero de cursos por nivel de formacao == nivel_formacao 
+			cursor2.execute("SELECT count(*) FROM " + self.table_name + " WHERE (nivel_formacao == '" + nivel_formacao[0].encode("utf-8") + "') AND ((curso LIKE '%" + args[0] + "%') OR (curso LIKE '%" + args[1] + "%'))")
+			tmp = cursor2.fetchone()[0]
+			a_escrever.append(tmp)
 			csv_writer.writerow(a_escrever)	
 		csv_writer.writerow([])
 			
-		
-		#Escreve a quantidade de alunos por nível de formação ao longo dos anos
 		csv_writer.writerow(nome_colunas_inscritos_nf)
+		#Escreve a quantidade de alunos por nível de formação ao longo dos anos
 		cursor.execute("SELECT DISTINCT nivel_formacao FROM " + self.table_name + " WHERE " + col_name + " LIKE '%" + args[0] + "%' OR " + col_name + " LIKE '%" + args[1] + "%'")
 		for nivel_formacao in cursor:
 			a_escrever = [s.encode("utf-8") if isinstance(s, unicode) else s for s in nivel_formacao]	
