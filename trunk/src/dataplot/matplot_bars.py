@@ -7,7 +7,6 @@ csv_a = CsvAnalyzer("Inscritos.csv")
 
 N = 16
 menMeans = csv_a.total_h
-menStd =   (2, 3, 4, 1, 2, 2, 3, 4, 1, 2, 2, 3, 4, 1, 2,2)
 
 ind = np.arange(N)  # the x locations for the groups
 width = 0.25       # the width of the bars
@@ -17,12 +16,10 @@ ax = fig.add_subplot(111)
 rects1 = ax.bar(ind, menMeans, width, color='blue', yerr=menStd)
 
 womenMeans = csv_a.total_m
-womenStd =   (3, 5, 2, 3, 3, 3, 5, 2, 3, 3, 3, 5, 2, 3, 3, 2)
 
 rects2 = ax.bar(ind+width, womenMeans, width, color='red', yerr=womenStd)
 
 hm_Means = csv_a.total_hm
-hm_Std =   (3, 5, 2, 3, 3, 3, 5, 2, 3, 3, 3, 5, 2, 3, 3, 2)
 
 rects3 = ax.bar(ind+width*2, hm_Means, width, color='green', yerr=hm_Std)
 

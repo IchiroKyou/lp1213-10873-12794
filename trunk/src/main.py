@@ -24,3 +24,5 @@ db.dbToCsv("curso",["Computadores","Informática"])
 #plotlines = MatPlotLines(csv_a)
 #plotlines.draw('total_hm')
 
+db.closeConnection()
+

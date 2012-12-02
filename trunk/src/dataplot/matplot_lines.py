@@ -10,14 +10,12 @@ sys.path.append("../core")
 import matplotlib.pyplot as plt
 plt.figure
 
-from csvanalyzer import CsvAnalyzer
-
 class MatPlotLines:
 	'''
 	Desenha um gráfico de linhas
 	'''
-	def __init__(self, csv_a):
-		self.csv_a = csv_a
+	def __init__(self, dados):
+		self.dados = dados
 
 	def draw(self, target):
 		#create data

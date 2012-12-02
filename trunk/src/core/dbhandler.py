@@ -9,6 +9,7 @@
 import csv
 import sqlite3
 from xlshandler import XlsHandler
+from curso import Curso
 
 class DbHandler:
 	'''
@@ -26,9 +27,6 @@ class DbHandler:
 		self.table_name = ''
 		self.db=db
 		self.anos = ["9596","9697","9798","9899","9900","0001","0102","0203","0304","0405","0506","0607","0708","0809","0910","1011"]
-		self.totalH = [0 for i in range(16)]
-		self.totalM = [0 for i in range(16)]
-		self.totalHM = [0 for i in range(16)]
 		
 
 		self.conn=sqlite3.connect(self.db)
@@ -232,3 +230,33 @@ class DbHandler:
 			csv_writer.writerow(a_escrever)
 
 		del csv_writer
+		
+	def getInscritosIn(self, curso, col_name, args):
+		'''
+		Retorna uma lista com o nr de inscritos por ano lectivo
+		no curso 'curso'
+		''' 
+		cursor = self.conn.cursor()
+		totais = [] #vai conter as listas totalH, totalM e totalHM
+		totalH = [0 for i in range(16)]
+		totalM = [0 for i in range(16)]
+		totalHM = [0 for i in range(16)]
+		curso = Curso()
+		i = 0
+		
+		cursor.execute("SELECT * FROM " + self.table_name + " WHERE " + col_name + " LIKE " + "'%" + args[0] + "%'" + " OR " + col_name + " LIKE " + "'%" + args[1] + "%'")
+		
+		for row in cursor:
+			if i == 3:
+				
+			else:
+				i += 1
+		
+		
+	def closeConnection(self):
+		'''
+		Fecha a conexao à base de dados
+		'''
+		self.conn.close()
+		
+		
