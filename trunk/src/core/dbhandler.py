@@ -231,26 +231,50 @@ class DbHandler:
 
 		del csv_writer
 		
-	def getInscritosIn(self, curso, col_name, args):
+	def getInscritos(self, col_name, args):
 		'''
 		Retorna uma lista com o nr de inscritos por ano lectivo
-		no curso 'curso'
+		nos diversos cursos 
 		''' 
 		cursor = self.conn.cursor()
 		totais = [] #vai conter as listas totalH, totalM e totalHM
 		totalH = [0 for i in range(16)]
 		totalM = [0 for i in range(16)]
 		totalHM = [0 for i in range(16)]
-		curso = Curso()
-		i = 0
+		cursos = [] #lista de cursos
 		
 		cursor.execute("SELECT * FROM " + self.table_name + " WHERE " + col_name + " LIKE " + "'%" + args[0] + "%'" + " OR " + col_name + " LIKE " + "'%" + args[1] + "%'")
 		
 		for row in cursor:
-			if i == 3:
-				
-			else:
+			escreve_h = True
+			escreve_m = False
+			escreve_hm = False
+			curso = Curso()
+			curso.totalH = []
+			curso.totalM = []
+			curso.totalHM = []
+			
+			for i in range(len(row)):
+				if (i == 3):
+					curso.nome = row[i]
+				elif (i > 3):
+					if (escreve_h == True):
+						curso.totalH.append(int(row[i]))
+						escreve_h = False
+						escreve_m = True
+					elif (escreve_m == True):
+						curso.totalM.append(int(row[i]))
+						escreve_m = False
+						escreve_hm = True
+					elif (escreve_hm == True):
+						curso.totalHM.append(int(row[i]))
+						escreve_hm = False
+						escreve_h = True
 				i += 1
+
+			cursos.append(curso)
+			
+		return cursos
 		
 		
 	def closeConnection(self):

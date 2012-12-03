@@ -12,11 +12,13 @@ sys.path.append('gui')
 from csvanalyzer import CsvAnalyzer
 from matplot_lines import MatPlotLines
 from dbhandler import DbHandler
+from curso import Curso
 
 db = DbHandler("database/Inscritos.sqlite3")
 db.createTable("inscritos")
 db.writeToTable("Inscritos_2010-2011.xls")
 db.dbToCsv("curso",["Computadores","Informática"])
+cursos = db.getInscritos("curso",["Computadores","Informática"])
 
 #csv_a = CsvAnalyzer('results/estatisticas.csv')
 
