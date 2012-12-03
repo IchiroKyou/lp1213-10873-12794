@@ -1,47 +1,52 @@
+import sys
+sys.path.append("../core")
 import numpy as np
 import matplotlib.pyplot as plt
-from csvanalyzer import CsvAnalyzer
+from curso import Curso
 
+def desenhaGraphBars(cursos):
+	'''
+	Funcao que desenha um grafico de barras
+	'''
+	N = 16
+	menMeans = cursos[0].totalH
+	menStd =   (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-csv_a = CsvAnalyzer("Inscritos.csv")
+	ind = np.arange(N)  # the x locations for the groups
+	width = 0.25       # the width of the bars
 
-N = 16
-menMeans = csv_a.total_h
+	fig = plt.figure(figsize=(12.5,6), dpi=100, facecolor='yellow', edgecolor='black')
+	ax = fig.add_subplot(111)
+	rects1 = ax.bar(ind, menMeans, width, color='blue', yerr=menStd)
 
-ind = np.arange(N)  # the x locations for the groups
-width = 0.25       # the width of the bars
+	womenMeans = cursos[0].totalM
+	womenStd = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-fig = plt.figure(figsize=(12.5,6), dpi=100, facecolor='yellow', edgecolor='black')
-ax = fig.add_subplot(111)
-rects1 = ax.bar(ind, menMeans, width, color='blue', yerr=menStd)
+	rects2 = ax.bar(ind+width, womenMeans, width, color='red', yerr=womenStd)
 
-womenMeans = csv_a.total_m
+	hm_Means = cursos[0].totalHM
+	hm_Std = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-rects2 = ax.bar(ind+width, womenMeans, width, color='red', yerr=womenStd)
+	rects3 = ax.bar(ind+width*2, hm_Means, width, color='green', yerr=hm_Std)
 
-hm_Means = csv_a.total_hm
-
-rects3 = ax.bar(ind+width*2, hm_Means, width, color='green', yerr=hm_Std)
-
-# add some
-ax.set_ylabel('Numero de Inscritos no Ensino Superior')
-ax.set_title('(por Ano Lectivo)')
-ax.set_xticks(ind+width)
-ax.set_xticklabels( ('9596', '9697', '9798', '9899', '9900',
+	# add some
+	ax.set_ylabel('Numero de Inscritos no Ensino Superior')
+	ax.set_title('(por Ano Lectivo)')
+	ax.set_xticks(ind+width)
+	ax.set_xticklabels( ('9596', '9697', '9798', '9899', '9900',
                      '0001', '0102', '0203', '0304', '0405',
 		   '0506', '0607', '0708', '0809', '0910', '1011') )
 
-ax.legend( (rects1[0], rects2[0], rects3[0] ), ('Homens', 'Mulheres', 'Homens e Mulheres') )
+	ax.legend( (rects1[0], rects2[0], rects3[0] ), ('Homens', 'Mulheres', 'Homens e Mulheres') )
 
-def autolabel(rects):
-    # attach some text labels
-    for rect in rects:
-        height = rect.get_height()
-        ax.text(rect.get_x()+rect.get_width()/2., 1.05*height, '%d'%int(height),
-                ha='center', va='bottom')
+	def autolabel(rects):
+		# attach some text labels
+		for rect in rects:
+			height = rect.get_height()
+			ax.text(rect.get_x()+rect.get_width()/2., 1.05*height, '%d'%int(height), ha='center', va='bottom')
 
-autolabel(rects1)
-autolabel(rects2)
-autolabel(rects3)
+	autolabel(rects1)
+	autolabel(rects2)
+	autolabel(rects3)
 
-plt.show()
+	plt.show()
