@@ -10,7 +10,6 @@ sys.path.append('core')
 sys.path.append('dataplot')
 sys.path.append('gui')
 from matplot_bars import *
-from matplot_lines import MatPlotLines
 from dbhandler import DbHandler
 from curso import Curso
 
@@ -20,7 +19,7 @@ db.writeToTable("Inscritos_2010-2011.xls")
 db.dbToCsv("curso",["Computadores","Informática"])
 cursos = db.getInscritos("curso",["Computadores","Informática"])
 
-desenhaGraphBars(cursos)
+desenhaGraphBars(cursos, 1)
 
 db.closeConnection()
 

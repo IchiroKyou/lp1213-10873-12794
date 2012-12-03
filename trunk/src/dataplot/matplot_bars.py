@@ -4,12 +4,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from curso import Curso
 
-def desenhaGraphBars(cursos):
+def desenhaGraphBars(cursos, numero):
 	'''
 	Funcao que desenha um grafico de barras
 	'''
 	N = 16
-	menMeans = cursos[0].totalH
+	menMeans = cursos[numero].totalH
 	menStd =   (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 	ind = np.arange(N)  # the x locations for the groups
@@ -19,12 +19,12 @@ def desenhaGraphBars(cursos):
 	ax = fig.add_subplot(111)
 	rects1 = ax.bar(ind, menMeans, width, color='blue', yerr=menStd)
 
-	womenMeans = cursos[0].totalM
+	womenMeans = cursos[numero].totalM
 	womenStd = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 	rects2 = ax.bar(ind+width, womenMeans, width, color='red', yerr=womenStd)
 
-	hm_Means = cursos[0].totalHM
+	hm_Means = cursos[numero].totalHM
 	hm_Std = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 	rects3 = ax.bar(ind+width*2, hm_Means, width, color='green', yerr=hm_Std)
