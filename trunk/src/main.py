@@ -6,9 +6,11 @@
 @obs: PROGRAMA PARA A ANALISE DE DADOS DE UM .XLS
 '''
 import sys
+from PyQt4 import QtCore, QtGui
 sys.path.append('core')
 sys.path.append('dataplot')
 sys.path.append('gui')
+from myui import *
 from matplot_bars import *
 from dbhandler import DbHandler
 from curso import Curso
@@ -21,9 +23,13 @@ db.dbToCsv("curso",["Computadores","Informática"])
 cursos = db.getInscritosCurso("curso", ["Computadores","Informática"])
 niveis_formacao = db.getInscritosNF()
 
-desenhaGraphBars(cursos[1])
-desenhaGraphBars(niveis_formacao[1])
-
-
 db.closeConnection()
+
+app = QtGui.QApplication(sys.argv)
+MainWindow = QtGui.QMainWindow()
+ui = Ui_MainWindow()
+ui.setupUi(MainWindow)
+MainWindow.show()
+sys.exit(app.exec_())
+
 
